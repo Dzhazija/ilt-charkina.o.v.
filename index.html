@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Charkina O.V.</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Andika"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <style>
+      :root {
+        --bg: #303030;
+        --cl: #303030;
+        --alt: #6699ff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      @media screen and (min-width: 480px) {
+        body {
+          background: linear-gradient(
+            to left,
+            #d9e3f6 0%,
+            #fff 15%,
+            #fff 85%,
+            #d9e3f6 100%
+          );
+        }
+      }
+      .wrapper {
+        min-width: 320px;
+        max-width: 1200px;
+        width: 80%;
+        margin: auto;
+        padding-top: 1rem;
+        font-family: "Andika", sans-serif;
+      }
+      h1,
+      h3 {
+        text-transform: uppercase;
+        font-weight: normal;
+      }
+
+      .tabs {
+        display: block;
+        position: relative;
+      }
+
+      .tabs .tab {
+        float: left;
+        display: block;
+      }
+
+      .tabs .tab > input[type="radio"] {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+
+      .tabs .tab > label {
+        display: block;
+        padding: 0px 21px;
+        font-size: 18px;
+        text-transform: uppercase;
+        cursor: pointer;
+        position: relative;
+        color: var(--cl);
+        border-left: 2px solid #fff;
+        font-family: "Andika", sans-serif;
+        text-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.2);
+      }
+
+      .tabs .content {
+        z-index: -1;
+        overflow: hidden;
+        width: 100%;
+        padding: 25px;
+        position: absolute;
+        top: 36px;
+        left: 0;
+        color: var(--cl);
+        box-sizing: border-box;
+        opacity: 0;
+        transition: opacity 400ms ease-out;
+      }
+
+      .tabs > .tab > [id^="tab"]:checked + label {
+        top: 0;
+        background: var(--alt);
+        color: #fff;
+        border-radius: 5px;
+      }
+      .tabs > .tab > [id^="tab"]:checked + label:hover {
+        color: var(--cl);
+      }
+      .tabs > .tab > [id^="tab"]:checked ~ [id^="tab-content"] {
+        z-index: 100;
+
+        opacity: 1;
+        transition: opacity 400ms ease-out;
+      }
+
+      .nav-menu {
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .nav-menu__item {
+        margin: 0.5rem;
+      }
+
+      .nav-menu__link,
+      .link {
+        text-decoration: none;
+        text-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.2);
+        color: var(--cl);
+      }
+      .animation-underline {
+        position: relative;
+      }
+
+      .animation-underline::after {
+        content: " ";
+        width: 0;
+        border-bottom: 4px solid var(--alt);
+        opacity: .2;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition-property: width;
+        transition-duration: 0.4s;
+        transition-timing-function: ease-in-out;
+      }
+      .animation-underline:hover::after {
+        width: 100%;
+      }
+
+      .title {
+        font-size: 20px;
+      }
+
+      .photo {
+        width: 140px;
+        height: 234px;
+        float: left;
+        margin-right: 2rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 0 2px 2px hsla(0, 0%, 100%, 0.2);
+        border-radius: 5px;
+      }
+
+      .ti {
+        text-indent: 2rem;
+      }
+      .subtitle {
+        text-indent: 2rem;
+      }
+
+      .publicl-link {
+        text-decoration: none;
+        color: var(--cl);
+      }
+      .publications-list {
+        list-style: none;
+        counter-reset: my-awesome-counter;
+      }
+      ol li {
+        counter-increment: my-awesome-counter;
+      }
+      ol li::before {
+        content: counter(my-awesome-counter) ". ";
+        color: var(--alt);
+        font-weight: bold;
+      }
+      .fas {
+        color: var(--alt);
+      }
+      details {
+        color: var(--alt);
+      }
+      .subtitle,
+      details > h4,
+      details > p,
+      details > a,
+      details > b,
+      details > .publications-list,
+      details > i {
+        color: var(--cl);
+      }
+      hr {
+        color: var(--alt);
+        display: block;
+        height: 4px;
+        border: 0;
+        border-top: 4px solid var(--alt);
+        margin: 1em 0;
+        padding: 0;
+        opacity: .2;
+      }
+      @media (min-width: 768px ) {
+
+        .two-columns {
+          columns: 2;
+        }
+      }
+      @media (min-width: 1020px ) {
+
+        .two-columns {
+          columns: 3;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- ============================= #eng ===================================== -->
+      <ul class="tabs">
+        <li class="tab">
+          <input type="radio" name="tabs" checked="checked" id="tab1" />
+          <label for="tab1" class="animation-underline">English</label>
+          <div id="tab-content1" class="content">
+            <nav>
+              <ul class="nav-menu">
+                <li class="nav-menu__item">
+                  <a
+                    class="nav-menu__link animation-underline"
+                    rel="noopener nofollow"
+                    target="_blank"
+                    href="http://www.ilt.kharkov.ua/"
+                    >ILT</a
+                  >
+                </li>
+                <li class="nav-menu__item">
+                  <a
+                    class="nav-menu__link animation-underline"
+                    rel="noopener nofollow"
+                    target="_blank"
+                    href="http://ilt.kharkov.ua/bvi/structure/depart_e/d26/d26e.html"
+                    >DEPARTMENT</a
+                  >
+                </li>
+              </ul>
+            </nav>
+
+            <h1 class="title">Oksana Charkina</h1>
+            <hr />
+            <h3>Researcher</h3>
+            <br />
+            <img class="photo" src="charkina.jpg" />
+
+            <p>
+              Department of Theoretical Physics,<br />
+              B. Verkin Institute for Low Temperature Physics & Engineering,<br />
+              47 Lenin Ave., Kharkov, 61103, Ukraine
+            </p>
+            <br />
+            <p>
+              <a
+                class="link animation-underline "
+                href="mailto:charkina@ilt.kharkov.ua"
+              >
+                <i class="fas fa-at"></i>
+                charkina&#64;ilt.kharkov.ua</a
+              >
+            </p>
+            <p>
+              <a class="link animation-underline " href="tel:+380573410812">
+                <i class="fas fa-phone"></i>
+                +38 (057) 341-08-12</a
+              >
+            </p>
+            <br />
+            <p>Graduated from Kharkov State University in 1995.</p>
+            <p>The same year started work at ILTPE.</p>
+            <p>PhD Phys & Math, ILTPE, 2011.</p>
+            <details open>
+              <summary><h4 class="subtitle">Research area:</h4></summary>
+              <p class="ti two-columns">
+                The theory of nonlinear phenomena in condensed matter physics
+                based on the soliton concept and its applications for
+                description of nonlinear effects in solids.
+              </p>
+            </details>
+            <details open>
+              <summary
+                ><h4 class="subtitle">
+                  Last five years activity and current interests:
+                </h4>
+              </summary>
+              <p class="ti two-columns">
+                Subjects of current investigations include theoretical research
+                of the non-stationary and internal dynamics of topological
+                solitons, and conditions of formation and propagation of bound
+                soliton complexes and breather excitations in nonlinear systems
+                with the strong dispersion and complicated microstructure,
+                computer simulation of the soliton-complexes nonstationary
+                dynamics; exact theoretical description of spin waves scattering
+                by moving domain walls in anisotropic antiferromagnets in a
+                magnetic field; theory of the local negative magnetic
+                permeability in nonlinear metamaterials and possibility of
+                observation of breather excitations in such systems.
+              </p>
+            </details>
+            <details open>
+              <summary><h4 class="subtitle">Publications:</h4></summary>
+              <ol class="publications-list">
+                <li>
+                  Zhuck&nbsp;N.P. Green's functions of Maxwell's equations for
+                  the plane-layered Tellegen bi-isotropic medium /<wbr />
+                  N.P&nbsp;Zhuck, <b>O.V.&nbsp;Charkina</b>, S.N.&nbsp;Shul’ga
+                  //<wbr /><i>
+                    Journal of communications technology & electronics. – 1996.
+                    – Т.41, No 1. – P. 22–28.</i
+                  >
+                </li>
+                <li>
+                  Chishko&nbsp;K.A. Emission of electromagnetic waves by edge
+                  dislocations moving in ionic crystals /<wbr />
+                  K.A.&nbsp;Chishko, <b>O.V.&nbsp;Charkina</b>//<wbr />
+                  <i
+                    >Physics of the Solid State. – 1996. – Т.38, No 9. – P.
+                    1521-1526.</i
+                  >
+                </li>
+                <li>
+                  Chishko&nbsp;K.A. Radiation of electromagnetic waves from edge
+                  dislocations moving in ionic crystals /<wbr />
+                  K.A.&nbsp;Chishko, <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
+                    Materials Sciences & Engineering: A. – 1997. – V.234-236. –
+                    P. 361-364.</i
+                  >
+                </li>
+
+                <li>
+                  Charkina&nbsp;O.V. Electromagnetic Emission of Mobile
+                  Dislocation Segments in an Ionic Crystal /
+                  <b>O.V.&nbsp;Charkina</b>, K.A.&nbsp;Chishko //<wbr /><i>
+                    Physics of the Solid State. – 2001 – V.43, No 10. – P.
+                    1898-1904.</i
+                  >
+                </li>
+                <li>
+                  Antsygina&nbsp;T.N. Heat Capacity of 2D Solid Solution of
+                  Diatomic Molecules in Rare Gas Matrix / T.N.&nbsp;Antsygina,
+                  <b>O.V.&nbsp;Charkina</b>, M.I.&nbsp;Poltavskaya //<wbr /><i>
+                    Journal of Low Temperature Physics. – 2005 – V.138, No 1/2.
+                    – P. 379-384.</i
+                  >
+                </li>
+                <li>
+                  Charkina&nbsp;O.V. Internal Modes of Oscillations of
+                  Topological Solitons in Highly Dispersive Media /
+                  <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan //<wbr /><i>
+                    Uzhhorod University Scientific Herald. Series Physics. –
+                    2005. – Iss.17. – P. 30-37.</i
+                  >
+                </li>
+                <li>
+                  Charkina&nbsp;O.V. Internal Modes of Solitons and
+                  Near-Integrable Highly-Dispersive Nonlinear Systems /
+                  <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan //<wbr /><i>
+                    SIGMA (Symmetry, Integrability and Geometry: Methods and
+                    Applications). – 2006. – V. 2, No 047. – P. 1–12. – Open
+                    access :</i
+                  >
+                  <a
+                    rel="noopener nofollow"
+                    target="_blank"
+                    class="publicl-link animation-underline"
+                    href="http://www.emis.de/journals/SIGMA/2006/Paper047/"
+                    >http://www.emis.de/journals/SIGMA/2006/Paper047/</a
+                  >
+                </li>
+                <li>
+                  Charkina&nbsp;O.V. Processes of formation of soliton complexes
+                  and breathers in highly dispersive media /
+                  <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan //<wbr /><i>
+                    Uzhhorod University Scientific Herald. Series Physics. –
+                    2007. – Iss.21. – P. 196–204. [in Ukrainian].</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. Dynamical features of bound states of
+                  topological solitons in highly dispersive low-dimensional
+                  systems / M.M.&nbsp;Bogdan,
+                  <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
+                    Low Temperature Physics. – 2007. – Т.33, No 12. – P.
+                    1073–1076.</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. Dynamics and stability of solitons in the
+                  sine-Gordon models with a strong dispersion /
+                  M.M.&nbsp;Bogdan, <b>O.V.&nbsp;Charkina</b> // <wbr /><i
+                    >Nonlinear world. – 2008. – V.6, No 5-6. – P. 324–333. [in
+                    Russian].</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. Dynamics of bound soliton states in
+                  regularized dispersive equations / M.M.&nbsp;Bogdan,
+                  <b>O.V.&nbsp;Charkina</b> // <wbr /><i
+                    >Low Temperature Physics. – 2008. – V.34, No 7. – P.
+                    564–570.</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. Spin waves in easy-axis antiferromagnets with
+                  precessing domain walls / M.M.&nbsp;Bogdan,
+                  <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
+                    Low Temperature Physics. – 2014. – V.40, No 1. – P.
+                    84-90.</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. Local negative magnetic permeability and
+                  possibility of observation of breather excitations in magnetic
+                  metamaterials / M.M.&nbsp;Bogdan, <b>O.V.&nbsp;Charkina</b> //
+                  <wbr /><i
+                    >Low Temperature Physics. – 2014. – V.40, No 3. – P.
+                    234–238.</i
+                  >
+                </li>
+              </ol>
+            </details>
+          </div>
+        </li>
+        <!-- ======================== #endeng ========================================== -->
+        <!-- ======================== #ukr ========================================== -->
+        <li class="tab">
+          <input type="radio" name="tabs" id="tab2" />
+          <label for="tab2" class="animation-underline">Ukraine</label>
+          <div id="tab-content2" class="content">
+            <nav>
+              <ul class="nav-menu">
+                <li class="nav-menu__item">
+                  <a
+                    class="nav-menu__link animation-underline"
+                    href="http://www.ilt.kharkov.ua/"
+                    >ФТІНТ</a
+                  >
+                </li>
+                <li class="nav-menu__item">
+                  <a
+                    class="nav-menu__link animation-underline"
+                    href="http://ilt.kharkov.ua/bvi/structure/depart_e/d26/d26e.html"
+                    >ДЕПАРТАМЕНТ</a
+                  >
+                </li>
+              </ul>
+            </nav>
+            <h1 class="title">Оксана Чаркіна</h1>
+            <hr />
+            <h3>Науковий співробітник</h3>
+            <br />
+            <img class="photo" src="charkina.jpg" />
+            <p>
+              Відділ теоретичної фізики,<br />
+              Фізико-технічний інститут низьких температур ім. Б.І. Вєркіна,<br />
+              Проспект Науки, 47, Харків, 61103, Україна
+            </p>
+            <br />
+            <p>
+              <a
+                class="link animation-underline "
+                href="mailto:charkina@ilt.kharkov.ua"
+              >
+                <i class="fas fa-at"></i>
+                charkina&#64;ilt.kharkov.ua</a
+              >
+            </p>
+            <p>
+              <a class="link animation-underline " href="tel:+380573410812">
+                <i class="fas fa-phone"></i>
+                +38 (057) 341-08-12</a
+              >
+            </p>
+            <br />
+            <p>Graduated from Kharkov State University in 1995.</p>
+            <p>The same year started work at ILTPE.</p>
+            <p>PhD Phys & Math, ILTPE, 2011.</p>
+            <details open>
+              <summary><h4 class="subtitle">Research area:</h4></summary>
+              <p class="ti">
+                The theory of nonlinear phenomena in condensed matter physics
+                based on the soliton concept and its applications for
+                description of nonlinear effects in solids.
+              </p>
+            </details>
+            <details open>
+              <summary
+                ><h4 class="subtitle">
+                  Last five years activity and current interests:
+                </h4>
+              </summary>
+              <p class="ti">
+                Subjects of current investigations include theoretical research
+                of the non-stationary and internal dynamics of topological
+                solitons, and conditions of formation and propagation of bound
+                soliton complexes and breather excitations in nonlinear systems
+                with the strong dispersion and complicated microstructure,
+                computer simulation of the soliton-complexes nonstationary
+                dynamics; exact theoretical description of spin waves scattering
+                by moving domain walls in anisotropic antiferromagnets in a
+                magnetic field; theory of the local negative magnetic
+                permeability in nonlinear metamaterials and possibility of
+                observation of breather excitations in such systems.
+              </p>
+            </details>
+            <details open>
+              <summary><h4 class="subtitle">Publications:</h4></summary>
+              <ol class="publications-list">
+                <li>
+                  Zhuck&nbsp;N.P. Green's functions of Maxwell's equations for
+                  the plane-layered Tellegen bi-isotropic medium /<wbr />
+                  N.P&nbsp;Zhuck, <b>O.V.&nbsp;Charkina</b>, S.N.&nbsp;Shul’ga
+                  //<wbr /><i>
+                    Journal of communications technology & electronics. – 1996.
+                    – Т.41, No 1. – P. 22–28.</i
+                  >
+                </li>
+                <li>
+                  Chishko&nbsp;K.A. Emission of electromagnetic waves by edge
+                  dislocations moving in ionic crystals /<wbr />
+                  K.A.&nbsp;Chishko, <b>O.V.&nbsp;Charkina</b>//<wbr />
+                  <i
+                    >Physics of the Solid State. – 1996. – Т.38, No 9. – P.
+                    1521-1526.</i
+                  >
+                </li>
+                <li>
+                  Chishko&nbsp;K.A. Radiation of electromagnetic waves from edge
+                  dislocations moving in ionic crystals /<wbr />
+                  K.A.&nbsp;Chishko, <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
+                    Materials Sciences & Engineering: A. – 1997. – V.234-236. –
+                    P. 361-364.</i
+                  >
+                </li>
+
+                <li>
+                  Charkina&nbsp;O.V. Electromagnetic Emission of Mobile
+                  Dislocation Segments in an Ionic Crystal /
+                  <b>O.V.&nbsp;Charkina</b>, K.A.&nbsp;Chishko //<wbr /><i>
+                    Physics of the Solid State. – 2001 – V.43, No 10. – P.
+                    1898-1904.</i
+                  >
+                </li>
+                <li>
+                  Antsygina&nbsp;T.N. Heat Capacity of 2D Solid Solution of
+                  Diatomic Molecules in Rare Gas Matrix / T.N.&nbsp;Antsygina,
+                  <b>O.V.&nbsp;Charkina</b>, M.I.&nbsp;Poltavskaya //<wbr /><i>
+                    Journal of Low Temperature Physics. – 2005 – V.138, No 1/2.
+                    – P. 379-384.</i
+                  >
+                </li>
+                <li>
+                  Charkina&nbsp;O.V. Internal Modes of Oscillations of
+                  Topological Solitons in Highly Dispersive Media /
+                  <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan //<wbr /><i>
+                    Uzhhorod University Scientific Herald. Series Physics. –
+                    2005. – Iss.17. – P. 30-37.</i
+                  >
+                </li>
+                <li>
+                  Charkina&nbsp;O.V. Internal Modes of Solitons and
+                  Near-Integrable Highly-Dispersive Nonlinear Systems /
+                  <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan //<wbr /><i>
+                    SIGMA (Symmetry, Integrability and Geometry: Methods and
+                    Applications). – 2006. – V. 2, No 047. – P. 1–12. – Open
+                    access :</i
+                  >
+                  <a
+                    rel="noopener nofollow"
+                    target="_blank"
+                    class="publicl-link animation-underline"
+                    href="http://www.emis.de/journals/SIGMA/2006/Paper047/"
+                    >http://www.emis.de/journals/SIGMA/2006/Paper047/</a
+                  >
+                </li>
+                <li>
+                  Charkina&nbsp;O.V. Processes of formation of soliton complexes
+                  and breathers in highly dispersive media /
+                  <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan //<wbr /><i>
+                    Uzhhorod University Scientific Herald. Series Physics. –
+                    2007. – Iss.21. – P. 196–204. [in Ukrainian].</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. Dynamical features of bound states of
+                  topological solitons in highly dispersive low-dimensional
+                  systems / M.M.&nbsp;Bogdan,
+                  <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
+                    Low Temperature Physics. – 2007. – Т.33, No 12. – P.
+                    1073–1076.</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. Dynamics and stability of solitons in the
+                  sine-Gordon models with a strong dispersion /
+                  M.M.&nbsp;Bogdan, <b>O.V.&nbsp;Charkina</b> // <wbr /><i
+                    >Nonlinear world. – 2008. – V.6, No 5-6. – P. 324–333. [in
+                    Russian].</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. Dynamics of bound soliton states in
+                  regularized dispersive equations / M.M.&nbsp;Bogdan,
+                  <b>O.V.&nbsp;Charkina</b> // <wbr /><i
+                    >Low Temperature Physics. – 2008. – V.34, No 7. – P.
+                    564–570.</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. Spin waves in easy-axis antiferromagnets with
+                  precessing domain walls / M.M.&nbsp;Bogdan,
+                  <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
+                    Low Temperature Physics. – 2014. – V.40, No 1. – P.
+                    84-90.</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. Local negative magnetic permeability and
+                  possibility of observation of breather excitations in magnetic
+                  metamaterials / M.M.&nbsp;Bogdan, <b>O.V.&nbsp;Charkina</b> //
+                  <wbr /><i
+                    >Low Temperature Physics. – 2014. – V.40, No 3. – P.
+                    234–238.</i
+                  >
+                </li>
+              </ol>
+            </details>
+          </div>
+        </li>
+        <!-- ======================== #enduk =========================================== -->
+        <!-- ======================== #ru =========================================== -->
+        <li class="tab">
+          <input type="radio" name="tabs" id="tab3" />
+          <label for="tab3" class="animation-underline">Russian</label>
+          <div id="tab-content3" class="content">
+            <nav>
+              <ul class="nav-menu">
+                <li class="nav-menu__item">
+                  <a
+                    class="nav-menu__link animation-underline"
+                    href="http://www.ilt.kharkov.ua/"
+                    >ФТИНТ</a
+                  >
+                </li>
+                <li class="nav-menu__item">
+                  <a
+                    class="nav-menu__link animation-underline"
+                    href="http://ilt.kharkov.ua/bvi/structure/depart_e/d26/d26e.html"
+                    >ДЕПАРТАМЕНТ</a
+                  >
+                </li>
+              </ul>
+            </nav>
+            <h1 class="title">Оксана Чаркина</h1>
+            <hr />
+            <h3>Научный сотрудник</h3>
+            <br />
+            <img class="photo" src="charkina.jpg" />
+            <p>
+              Отдел теоретической физики,<br />
+              Физико-технический институт низких температур им. Б.И. Веркина,<br />
+              Проспект Науки, 47, Харьков, 61103, Украина
+            </p>
+            <br />
+            <p>
+              <a
+                class="link animation-underline "
+                href="mailto:charkina@ilt.kharkov.ua"
+              >
+                <i class="fas fa-at"></i>
+                charkina&#64;ilt.kharkov.ua</a
+              >
+            </p>
+            <p>
+              <a class="link animation-underline " href="tel:+380573410812">
+                <i class="fas fa-phone"></i>
+                +38 (057) 341-08-12</a
+              >
+            </p>
+            <br />
+            <p>Graduated from Kharkov State University in 1995.</p>
+            <p>The same year started work at ILTPE.</p>
+            <p>PhD Phys & Math, ILTPE, 2011.</p>
+            <details open>
+              <summary><h4 class="subtitle">Research area:</h4></summary>
+              <p class="ti">
+                The theory of nonlinear phenomena in condensed matter physics
+                based on the soliton concept and its applications for
+                description of nonlinear effects in solids.
+              </p>
+            </details>
+            <details open>
+              <summary
+                ><h4 class="subtitle">
+                  Last five years activity and current interests:
+                </h4>
+              </summary>
+              <p class="ti">
+                Subjects of current investigations include theoretical research
+                of the non-stationary and internal dynamics of topological
+                solitons, and conditions of formation and propagation of bound
+                soliton complexes and breather excitations in nonlinear systems
+                with the strong dispersion and complicated microstructure,
+                computer simulation of the soliton-complexes nonstationary
+                dynamics; exact theoretical description of spin waves scattering
+                by moving domain walls in anisotropic antiferromagnets in a
+                magnetic field; theory of the local negative magnetic
+                permeability in nonlinear metamaterials and possibility of
+                observation of breather excitations in such systems.
+              </p>
+            </details>
+            <details open>
+              <summary><h4 class="subtitle">Publications:</h4></summary>
+              <ol class="publications-list">
+                <li>
+                  Zhuck&nbsp;N.P. Green's functions of Maxwell's equations for
+                  the plane-layered Tellegen bi-isotropic medium /<wbr />
+                  N.P&nbsp;Zhuck, <b>O.V.&nbsp;Charkina</b>, S.N.&nbsp;Shul’ga
+                  //<wbr /><i>
+                    Journal of communications technology & electronics. – 1996.
+                    – Т.41, No 1. – P. 22–28.</i
+                  >
+                </li>
+                <li>
+                  Chishko&nbsp;K.A. Emission of electromagnetic waves by edge
+                  dislocations moving in ionic crystals /<wbr />
+                  K.A.&nbsp;Chishko, <b>O.V.&nbsp;Charkina</b>//<wbr />
+                  <i
+                    >Physics of the Solid State. – 1996. – Т.38, No 9. – P.
+                    1521-1526.</i
+                  >
+                </li>
+                <li>
+                  Chishko&nbsp;K.A. Radiation of electromagnetic waves from edge
+                  dislocations moving in ionic crystals /<wbr />
+                  K.A.&nbsp;Chishko, <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
+                    Materials Sciences & Engineering: A. – 1997. – V.234-236. –
+                    P. 361-364.</i
+                  >
+                </li>
+
+                <li>
+                  Charkina&nbsp;O.V. Electromagnetic Emission of Mobile
+                  Dislocation Segments in an Ionic Crystal /
+                  <b>O.V.&nbsp;Charkina</b>, K.A.&nbsp;Chishko //<wbr /><i>
+                    Physics of the Solid State. – 2001 – V.43, No 10. – P.
+                    1898-1904.</i
+                  >
+                </li>
+                <li>
+                  Antsygina&nbsp;T.N. Heat Capacity of 2D Solid Solution of
+                  Diatomic Molecules in Rare Gas Matrix / T.N.&nbsp;Antsygina,
+                  <b>O.V.&nbsp;Charkina</b>, M.I.&nbsp;Poltavskaya //<wbr /><i>
+                    Journal of Low Temperature Physics. – 2005 – V.138, No 1/2.
+                    – P. 379-384.</i
+                  >
+                </li>
+                <li>
+                  Charkina&nbsp;O.V. Internal Modes of Oscillations of
+                  Topological Solitons in Highly Dispersive Media /
+                  <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan //<wbr /><i>
+                    Uzhhorod University Scientific Herald. Series Physics. –
+                    2005. – Iss.17. – P. 30-37.</i
+                  >
+                </li>
+                <li>
+                  Charkina&nbsp;O.V. Internal Modes of Solitons and
+                  Near-Integrable Highly-Dispersive Nonlinear Systems /
+                  <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan //<wbr /><i>
+                    SIGMA (Symmetry, Integrability and Geometry: Methods and
+                    Applications). – 2006. – V. 2, No 047. – P. 1–12. – Open
+                    access :</i
+                  >
+                  <a
+                    rel="noopener nofollow"
+                    target="_blank"
+                    class="publicl-link animation-underline"
+                    href="http://www.emis.de/journals/SIGMA/2006/Paper047/"
+                    >http://www.emis.de/journals/SIGMA/2006/Paper047/</a
+                  >
+                </li>
+                <li>
+                  Charkina&nbsp;O.V. Processes of formation of soliton complexes
+                  and breathers in highly dispersive media /
+                  <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan //<wbr /><i>
+                    Uzhhorod University Scientific Herald. Series Physics. –
+                    2007. – Iss.21. – P. 196–204. [in Ukrainian].</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. Dynamical features of bound states of
+                  topological solitons in highly dispersive low-dimensional
+                  systems / M.M.&nbsp;Bogdan,
+                  <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
+                    Low Temperature Physics. – 2007. – Т.33, No 12. – P.
+                    1073–1076.</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. Dynamics and stability of solitons in the
+                  sine-Gordon models with a strong dispersion /
+                  M.M.&nbsp;Bogdan, <b>O.V.&nbsp;Charkina</b> // <wbr /><i
+                    >Nonlinear world. – 2008. – V.6, No 5-6. – P. 324–333. [in
+                    Russian].</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. Dynamics of bound soliton states in
+                  regularized dispersive equations / M.M.&nbsp;Bogdan,
+                  <b>O.V.&nbsp;Charkina</b> // <wbr /><i
+                    >Low Temperature Physics. – 2008. – V.34, No 7. – P.
+                    564–570.</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. Spin waves in easy-axis antiferromagnets with
+                  precessing domain walls / M.M.&nbsp;Bogdan,
+                  <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
+                    Low Temperature Physics. – 2014. – V.40, No 1. – P.
+                    84-90.</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. Local negative magnetic permeability and
+                  possibility of observation of breather excitations in magnetic
+                  metamaterials / M.M.&nbsp;Bogdan, <b>O.V.&nbsp;Charkina</b> //
+                  <wbr /><i
+                    >Low Temperature Physics. – 2014. – V.40, No 3. – P.
+                    234–238.</i
+                  >
+                </li>
+              </ol>
+            </details>
+          </div>
+        </li>
+        <!-- ======================== #endru =========================================== -->
+      </ul>
+    </div>
+  </body>
+</html>
