@@ -134,7 +134,7 @@
         content: " ";
         width: 0;
         border-bottom: 4px solid var(--alt);
-        opacity: .2;
+        opacity: 0.2;
         position: absolute;
         bottom: 0;
         left: 0;
@@ -188,6 +188,9 @@
       }
       details {
         color: var(--alt);
+        margin: 1rem 0;
+        padding: 1rem;
+        box-shadow: 2px 2px 2px 2px hsla(0, 0%, 0%, 0.2);
       }
       .subtitle,
       details > h4,
@@ -206,21 +209,115 @@
         border-top: 4px solid var(--alt);
         margin: 1em 0;
         padding: 0;
-        opacity: .2;
+        opacity: 0.2;
       }
-      @media (min-width: 768px ) {
-
+      @media (min-width: 768px) {
         .two-columns {
           columns: 2;
         }
       }
-      @media (min-width: 1020px ) {
-
+      @media (min-width: 1020px) {
         .two-columns {
           columns: 3;
         }
       }
 
+      .person-info {
+        padding: 1rem;
+        box-shadow: 2px 2px 2px 2px hsla(0, 0%, 0%, 0.2);
+      }
+      .person-info__photo {
+        display: flex;
+        justify-content: center;
+        margin: 1rem 0;
+      }
+      .person-info__contacts {
+        margin: 1rem 0;
+        list-style: none;
+      }
+      .person-info__work {
+        list-style: none;
+        margin: 1rem 0;
+      }
+      .person-info__biography {
+        margin: 1rem 0;
+        list-style: none;
+      }
+      @media (min-width: 620px) {
+        .person-info {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 240px 1fr 1fr;
+        }
+        .person-info__photo {
+          grid-column: 1 / 2;
+          grid-row: 1 /2;
+          justify-content: flex-start;
+        }
+        .person-info__contacts {
+          grid-column: 2 / 3;
+          grid-row: 1 / 2;
+          align-self: center;
+        }
+        .person-info__work {
+          grid-column: 1 / 3;
+          grid-row: 2 / 3;
+        }
+        .person-info__biography {
+          grid-column: 1 / 3;
+          grid-row: 3 / 4;
+        }
+      }
+      @media (min-width: 800px) {
+        .person-info {
+          display: grid;
+          grid-template-columns: minmax(170px, 1fr) 3fr;
+          grid-template-rows: fit-content(60%) fit-content(15%) fit-content(25%);
+        }
+        .person-info__photo {
+          grid-column: 1 / 2;
+          grid-row: 1 / 4;
+        }
+        .person-info__contacts {
+          grid-column: 2 / 3;
+          grid-row: 2 / 3;
+          align-self: center;
+        }
+        .person-info__work {
+          grid-column: 2 / 3;
+          grid-row: 1 / 2;
+        }
+        .person-info__biography {
+          grid-column: 2 / 3;
+          grid-row: 3 / 4;
+          padding-bottom: 1rem;
+        }
+      }
+      @media (min-width: 1200px) {
+        .person-info {
+          display: grid;
+          grid-template-columns: 180px 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+        }
+        .person-info__photo {
+          grid-column: 1 / 2;
+          grid-row: 1 / 3;
+        }
+        .person-info__contacts {
+          grid-column: 3 / 4;
+          grid-row: 1 / 2;
+          text-align: right;
+          align-self: flex-start;
+        }
+        .person-info__work {
+          grid-column: 2 / 3;
+          grid-row: 1 / 2;
+        }
+        .person-info__biography {
+          grid-column: 2 / 3;
+          grid-row: 2 / 3;
+        }
+      }
     </style>
   </head>
   <body>
@@ -229,7 +326,7 @@
       <ul class="tabs">
         <li class="tab">
           <input type="radio" name="tabs" checked="checked" id="tab1" />
-          <label for="tab1" class="animation-underline">English</label>
+          <label for="tab1" class="animation-underline">En</label>
           <div id="tab-content1" class="content">
             <nav>
               <ul class="nav-menu">
@@ -258,33 +355,49 @@
             <hr />
             <h3>Researcher</h3>
             <br />
-            <img class="photo" src="charkina.jpg" />
+            <div class="person-info">
+              <div class="person-info__photo">
+                <img
+                  class="photo"
+                  src="./charkina.jpg"
+                  alt="Photo of Oksana Charkina"
+                  title="Oksana Charkina"
+                />
+              </div>
+              <ul class="person-info__work">
+                <li>Department of Theoretical Physics,</li>
+                <li>
+                  B. Verkin Institute for Low Temperature Physics & Engineering
+                </li>
+                <li>of the National Academy of Sciences of Ukraine</li>
+                <li>Nauky Ave., Kharkiv, 61103, Ukraine</li>
+              </ul>
+              <!-- <br /> -->
+              <ul class="person-info__contacts">
+                <li>
+                  <a
+                    class="link animation-underline "
+                    href="mailto:charkina@ilt.kharkov.ua"
+                  >
+                    <i class="fas fa-at"></i>
+                    charkina&#64;ilt.kharkov.ua</a
+                  >
+                </li>
+                <li>
+                  <a class="link animation-underline " href="tel:+380573410812">
+                    <i class="fas fa-phone"></i>
+                    +38 (057) 341-08-12</a
+                  >
+                </li>
+              </ul>
 
-            <p>
-              Department of Theoretical Physics,<br />
-              B. Verkin Institute for Low Temperature Physics & Engineering,<br />
-              47 Lenin Ave., Kharkov, 61103, Ukraine
-            </p>
-            <br />
-            <p>
-              <a
-                class="link animation-underline "
-                href="mailto:charkina@ilt.kharkov.ua"
-              >
-                <i class="fas fa-at"></i>
-                charkina&#64;ilt.kharkov.ua</a
-              >
-            </p>
-            <p>
-              <a class="link animation-underline " href="tel:+380573410812">
-                <i class="fas fa-phone"></i>
-                +38 (057) 341-08-12</a
-              >
-            </p>
-            <br />
-            <p>Graduated from Kharkov State University in 1995.</p>
-            <p>The same year started work at ILTPE.</p>
-            <p>PhD Phys & Math, ILTPE, 2011.</p>
+              <!-- <br /> -->
+              <ul class="person-info__biography">
+                <li>Graduated from Kharkov State University in 1995.</li>
+                <li>The same year started work at ILTPE.</li>
+                <li>PhD Phys & Math, ILTPE, 2011.</li>
+              </ul>
+            </div>
             <details open>
               <summary><h4 class="subtitle">Research area:</h4></summary>
               <p class="ti two-columns">
@@ -328,7 +441,7 @@
                 <li>
                   Chishko&nbsp;K.A. Emission of electromagnetic waves by edge
                   dislocations moving in ionic crystals /<wbr />
-                  K.A.&nbsp;Chishko, <b>O.V.&nbsp;Charkina</b>//<wbr />
+                  K.A.&nbsp;Chishko, <b>O.V.&nbsp;Charkina</b> //<wbr />
                   <i
                     >Physics of the Solid State. – 1996. – Т.38, No 9. – P.
                     1521-1526.</i
@@ -433,6 +546,32 @@
                     234–238.</i
                   >
                 </li>
+                <li>
+                  Spin-current resonances in a magnetically inhomogeneous 2D
+                  conducting system / <b>O.V.&nbsp;Charkina</b> ,
+                  A.N.&nbsp;Kalinenko, A.I.&nbsp;Kopeliovich, P.V.&nbsp;Pyshkin,
+                  A.V.&nbsp;Yanovsky // <wbr /><i
+                    >Physics Letters A. – 2016. – V.380. – P. 3678-3682.</i
+                  >
+                </li>
+                <li>
+                  Charkina&nbsp;О.V. Localized excitations and scattering of
+                  spin waves in ferromagnetic chains containing magnetic /
+                  <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan // <wbr /><i
+                    >Low Temperature Physics. – 2018. – V.44, No 7. – P.
+                    644-650.</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. The effect of the magnetic field on the
+                  stability and excitation spectrum of spin nanoclusters in
+                  anisotropic ferromagnetic chains / M.M.&nbsp;Bogdan,
+                  V.I.&nbsp;Belan,
+                  <b>O.V.&nbsp;Charkina</b> // <wbr /><i
+                    >Low Temperature Physics. – 2018. – V.44, No 12. – P.
+                    1331-1340.</i
+                  >
+                </li>
               </ol>
             </details>
           </div>
@@ -441,7 +580,7 @@
         <!-- ======================== #ukr ========================================== -->
         <li class="tab">
           <input type="radio" name="tabs" id="tab2" />
-          <label for="tab2" class="animation-underline">Ukraine</label>
+          <label for="tab2" class="animation-underline">UA</label>
           <div id="tab-content2" class="content">
             <nav>
               <ul class="nav-menu">
@@ -456,67 +595,107 @@
                   <a
                     class="nav-menu__link animation-underline"
                     href="http://ilt.kharkov.ua/bvi/structure/depart_e/d26/d26e.html"
-                    >ДЕПАРТАМЕНТ</a
+                    >ВІДДІЛ</a
                   >
                 </li>
               </ul>
             </nav>
-            <h1 class="title">Оксана Чаркіна</h1>
+            <h1 class="title">Оксана Вікторівна Чаркіна</h1>
             <hr />
             <h3>Науковий співробітник</h3>
             <br />
-            <img class="photo" src="charkina.jpg" />
-            <p>
-              Відділ теоретичної фізики,<br />
-              Фізико-технічний інститут низьких температур ім. Б.І. Вєркіна,<br />
-              Проспект Науки, 47, Харків, 61103, Україна
-            </p>
-            <br />
-            <p>
-              <a
-                class="link animation-underline "
-                href="mailto:charkina@ilt.kharkov.ua"
-              >
-                <i class="fas fa-at"></i>
-                charkina&#64;ilt.kharkov.ua</a
-              >
-            </p>
-            <p>
-              <a class="link animation-underline " href="tel:+380573410812">
-                <i class="fas fa-phone"></i>
-                +38 (057) 341-08-12</a
-              >
-            </p>
-            <br />
-            <p>Graduated from Kharkov State University in 1995.</p>
-            <p>The same year started work at ILTPE.</p>
-            <p>PhD Phys & Math, ILTPE, 2011.</p>
+            <div class="person-info">
+              <div class="person-info__photo">
+                <img
+                  class="photo"
+                  src="./charkina.jpg"
+                  alt="Оксана Вікторівна Чаркіна"
+                  title="Оксана Вікторівна Чаркіна"
+                />
+              </div>
+              <ul class="person-info__work">
+                <li>Відділ теоретичної фізики,</li>
+                <li>
+                  Фізико-технічний інститут низьких температур ім. Б.І. Вєркіна
+                </li>
+                <li>Національної академії наук України,</li>
+                <li>Проспект Науки, 47, Харків, 61103, Україна</li>
+              </ul>
+              <ul class="person-info__contacts">
+                <li>
+                  <a
+                    class="link animation-underline "
+                    href="mailto:charkina@ilt.kharkov.ua"
+                  >
+                    <i class="fas fa-at"></i>
+                    charkina&#64;ilt.kharkov.ua</a
+                  >
+                </li>
+                <li>
+                  <a class="link animation-underline " href="tel:+380573410812">
+                    <i class="fas fa-phone"></i>
+                    +38 (057) 341-08-12</a
+                  >
+                </li>
+              </ul>
+              <ul class="person-info__biography">
+                <li>Закінчила Харківський державний університет у 1995.</li>
+                <li>
+                  З того ж року працює у ФТИНТ ім. Б.І. Вєркіна НАН України.
+                </li>
+                <li>
+                  Кандидат фізико-математичних наук (спеціальність – теоретична
+                  фізика, ФТІНТ ім. Б.І. Вєркіна НАН України, 2011).
+                </li>
+              </ul>
+            </div>
             <details open>
-              <summary><h4 class="subtitle">Research area:</h4></summary>
+              <summary
+                ><h4 class="subtitle">Напрям наукової діяльності:</h4></summary
+              >
               <p class="ti">
-                The theory of nonlinear phenomena in condensed matter physics
-                based on the soliton concept and its applications for
-                description of nonlinear effects in solids.
+                Фізика багатошарових структур, метаматеріали. Фізика магнітних
+                явищ. Теоретична фізика.
               </p>
             </details>
             <details open>
               <summary
                 ><h4 class="subtitle">
-                  Last five years activity and current interests:
+                  Основні напрями досліджень останні п'ять років:
                 </h4>
               </summary>
               <p class="ti">
-                Subjects of current investigations include theoretical research
-                of the non-stationary and internal dynamics of topological
-                solitons, and conditions of formation and propagation of bound
-                soliton complexes and breather excitations in nonlinear systems
-                with the strong dispersion and complicated microstructure,
-                computer simulation of the soliton-complexes nonstationary
-                dynamics; exact theoretical description of spin waves scattering
-                by moving domain walls in anisotropic antiferromagnets in a
-                magnetic field; theory of the local negative magnetic
-                permeability in nonlinear metamaterials and possibility of
-                observation of breather excitations in such systems.
+                Дослідження нелінійної динаміки солітонних і бризерних збуджень
+                у низьковимірних системах із сильною дисперсією,
+                квазіодновимірних магнетиках і магнітних метаматеріалах та
+                точний розв’язок проблеми стійкості дискретних магнітних
+                наноструктур і спектральних задач для їхніх локалізованих
+                збуджень.
+              </p>
+            </details>
+            <details open>
+              <summary
+                ><h4 class="subtitle">
+                  Викладацька діяльність у закладах вищої освіти за останні
+                  п'ять років:
+                </h4>
+              </summary>
+              <p class="ti">
+                Національний технічний університет «Харківський політехнічний
+                інститут»:
+              </p>
+
+              <p>
+                «Теоретична фізика» – 2015/2016, 2016/2017, 2017/2018 навчальні
+                роки, весняний семестр (6 семестр);
+              </p>
+              <p>
+                «Теорія поля та Квантова механіка» – 2015/2016, 2016/2017,
+                2017/2018 навчальні роки, весняний семестр (6 семестр);
+              </p>
+              <p>
+                «Квантова механіка» – 2017/2018 навчальний рік, весняний семестр
+                (4 семестр).
               </p>
             </details>
             <details open>
@@ -534,7 +713,7 @@
                 <li>
                   Chishko&nbsp;K.A. Emission of electromagnetic waves by edge
                   dislocations moving in ionic crystals /<wbr />
-                  K.A.&nbsp;Chishko, <b>O.V.&nbsp;Charkina</b>//<wbr />
+                  K.A.&nbsp;Chishko, <b>O.V.&nbsp;Charkina</b> //<wbr />
                   <i
                     >Physics of the Solid State. – 1996. – Т.38, No 9. – P.
                     1521-1526.</i
@@ -590,12 +769,12 @@
                   >
                 </li>
                 <li>
-                  Charkina&nbsp;O.V. Processes of formation of soliton complexes
-                  and breathers in highly dispersive media /
-                  <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan //<wbr /><i>
-                    Uzhhorod University Scientific Herald. Series Physics. –
-                    2007. – Iss.21. – P. 196–204. [in Ukrainian].</i
-                  >
+                  Чаркіна&nbsp;O.В. Процеси формування солітонних комплексів і
+                  бризерів у середовищах із сильною дисперсією /
+                  <b>O.В.&nbsp;Чаркіна</b>, M.M.&nbsp;Богдан //<wbr /><i>
+                    Науковий вісник Ужгородського університету. Серія Фізика. –
+                    2007. – Вип.21. – С. 196–204.
+                  </i>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. Dynamical features of bound states of
@@ -639,6 +818,31 @@
                     234–238.</i
                   >
                 </li>
+                <li>
+                  Spin-current resonances in a magnetically inhomogeneous 2D
+                  conducting system / <b>O.V.&nbsp;Charkina</b> ,
+                  A.N.&nbsp;Kalinenko, A.I.&nbsp;Kopeliovich, P.V.&nbsp;Pyshkin,
+                  A.V.&nbsp;Yanovsky // <wbr /><i
+                    >Physics Letters A. – 2016. – V.380. – P. 3678-3682.</i
+                  >
+                </li>
+                <li>
+                  Charkina&nbsp;О.V. Localized excitations and scattering of
+                  spin waves in ferromagnetic chains containing magnetic /
+                  <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan // <wbr /><i
+                    >Low Temperature Physics. – 2018. – V.44, No 7. – P.
+                    644-650.</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. The effect of the magnetic field on the
+                  stability and excitation spectrum of spin nanoclusters in
+                  anisotropic ferromagnetic chains / M.M.&nbsp;Bogdan,
+                  V.I.&nbsp;Belan, <b>O.V.&nbsp;Charkina</b> // <wbr /><i
+                    >Low Temperature Physics. – 2018. – V.44, No 12. – P.
+                    1331-1340.</i
+                  >
+                </li>
               </ol>
             </details>
           </div>
@@ -647,7 +851,7 @@
         <!-- ======================== #ru =========================================== -->
         <li class="tab">
           <input type="radio" name="tabs" id="tab3" />
-          <label for="tab3" class="animation-underline">Russian</label>
+          <label for="tab3" class="animation-underline">RU</label>
           <div id="tab-content3" class="content">
             <nav>
               <ul class="nav-menu">
@@ -662,41 +866,55 @@
                   <a
                     class="nav-menu__link animation-underline"
                     href="http://ilt.kharkov.ua/bvi/structure/depart_e/d26/d26e.html"
-                    >ДЕПАРТАМЕНТ</a
+                    >Отдел Теор. Физики</a
                   >
                 </li>
               </ul>
             </nav>
-            <h1 class="title">Оксана Чаркина</h1>
+            <h1 class="title">Оксана Викторовна Чаркина</h1>
             <hr />
             <h3>Научный сотрудник</h3>
             <br />
-            <img class="photo" src="charkina.jpg" />
-            <p>
-              Отдел теоретической физики,<br />
-              Физико-технический институт низких температур им. Б.И. Веркина,<br />
-              Проспект Науки, 47, Харьков, 61103, Украина
-            </p>
-            <br />
-            <p>
-              <a
-                class="link animation-underline "
-                href="mailto:charkina@ilt.kharkov.ua"
-              >
-                <i class="fas fa-at"></i>
-                charkina&#64;ilt.kharkov.ua</a
-              >
-            </p>
-            <p>
-              <a class="link animation-underline " href="tel:+380573410812">
-                <i class="fas fa-phone"></i>
-                +38 (057) 341-08-12</a
-              >
-            </p>
-            <br />
-            <p>Graduated from Kharkov State University in 1995.</p>
-            <p>The same year started work at ILTPE.</p>
-            <p>PhD Phys & Math, ILTPE, 2011.</p>
+            <div class="person-info">
+              <div class="person-info__photo">
+                <img
+                  class="photo"
+                  src="./charkina.jpg"
+                  alt="Оксана Викторовна Чаркина"
+                  title="Оксана Викторовна Чаркина"
+                />
+              </div>
+              <ul class="person-info__work">
+                <li>Отдел теоретической физики,</li>
+                <li>
+                  Физико-технический институт низких температур им. Б.И.
+                  Веркина,
+                </li>
+                <li>Проспект Науки, 47, Харьков, 61103, Украина</li>
+              </ul>
+              <ul class="person-info__contacts">
+                <li>
+                  <a
+                    class="link animation-underline "
+                    href="mailto:charkina@ilt.kharkov.ua"
+                  >
+                    <i class="fas fa-at"></i>
+                    charkina&#64;ilt.kharkov.ua</a
+                  >
+                </li>
+                <li>
+                  <a class="link animation-underline " href="tel:+380573410812">
+                    <i class="fas fa-phone"></i>
+                    +38 (057) 341-08-12</a
+                  >
+                </li>
+              </ul>
+              <ul class="person-info__biography">
+                <li>Graduated from Kharkov State University in 1995.</li>
+                <li>The same year started work at ILTPE.</li>
+                <li>PhD Phys & Math, ILTPE, 2011.</li>
+              </ul>
+            </div>
             <details open>
               <summary><h4 class="subtitle">Research area:</h4></summary>
               <p class="ti">
@@ -740,7 +958,7 @@
                 <li>
                   Chishko&nbsp;K.A. Emission of electromagnetic waves by edge
                   dislocations moving in ionic crystals /<wbr />
-                  K.A.&nbsp;Chishko, <b>O.V.&nbsp;Charkina</b>//<wbr />
+                  K.A.&nbsp;Chishko, <b>O.V.&nbsp;Charkina</b> //<wbr />
                   <i
                     >Physics of the Solid State. – 1996. – Т.38, No 9. – P.
                     1521-1526.</i
@@ -796,12 +1014,12 @@
                   >
                 </li>
                 <li>
-                  Charkina&nbsp;O.V. Processes of formation of soliton complexes
-                  and breathers in highly dispersive media /
-                  <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan //<wbr /><i>
-                    Uzhhorod University Scientific Herald. Series Physics. –
-                    2007. – Iss.21. – P. 196–204. [in Ukrainian].</i
-                  >
+                  Чаркіна&nbsp;O.В. Процеси формування солітонних комплексів і
+                  бризерів у середовищах із сильною дисперсією /
+                  <b>O.В.&nbsp;Чаркіна</b>, M.M.&nbsp;Богдан //<wbr /><i>
+                    Науковий вісник Ужгородського університету. Серія Фізика. –
+                    2007. – Вип.21. – С. 196–204.
+                  </i>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. Dynamical features of bound states of
@@ -843,6 +1061,31 @@
                   <wbr /><i
                     >Low Temperature Physics. – 2014. – V.40, No 3. – P.
                     234–238.</i
+                  >
+                </li>
+                <li>
+                  Spin-current resonances in a magnetically inhomogeneous 2D
+                  conducting system / <b>O.V.&nbsp;Charkina</b> ,
+                  A.N.&nbsp;Kalinenko, A.I.&nbsp;Kopeliovich, P.V.&nbsp;Pyshkin,
+                  A.V.&nbsp;Yanovsky // <wbr /><i
+                    >Physics Letters A. – 2016. – V.380. – P. 3678-3682.</i
+                  >
+                </li>
+                <li>
+                  Charkina&nbsp;О.V. Localized excitations and scattering of
+                  spin waves in ferromagnetic chains containing magnetic /
+                  <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan // <wbr /><i
+                    >Low Temperature Physics. – 2018. – V.44, No 7. – P.
+                    644-650.</i
+                  >
+                </li>
+                <li>
+                  Bogdan&nbsp;M.M. The effect of the magnetic field on the
+                  stability and excitation spectrum of spin nanoclusters in
+                  anisotropic ferromagnetic chains / M.M.&nbsp;Bogdan,
+                  V.I.&nbsp;Belan, <b>O.V.&nbsp;Charkina</b> // <wbr /><i
+                    >Low Temperature Physics. – 2018. – V.44, No 12. – P.
+                    1331-1340.</i
                   >
                 </li>
               </ol>
