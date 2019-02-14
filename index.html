@@ -171,18 +171,24 @@
         color: var(--cl);
       }
       .publications-list {
+        counter-reset: publications;
         list-style: none;
-        counter-reset: my-awesome-counter;
       }
-      ol li {
-        counter-increment: my-awesome-counter;
+      .publications-list li {
+        counter-increment: publications;
+        padding-left: 2rem;
       }
-      ol li::before {
-        content: counter(my-awesome-counter) ". ";
+      .publications-list li::before {
+        content: " " counter(publications) "\00a0\00a0";
         color: var(--alt);
         font-weight: bold;
+        margin-left: -2rem;
       }
-      .fas {
+      .publications-link {
+        margin: 0 0.5rem;
+      }
+      .fas,
+      .fab {
         color: var(--alt);
       }
       details {
@@ -295,12 +301,13 @@
       @media (min-width: 1200px) {
         .person-info {
           display: grid;
-          grid-template-columns: 180px 1fr 1fr;
+          grid-template-columns: 180px minmax(1fr, 40%) 1fr;
           grid-template-rows: 1fr 1fr;
         }
         .person-info__photo {
           grid-column: 1 / 2;
           grid-row: 1 / 3;
+          /* text-align: center; */
         }
         .person-info__contacts {
           grid-column: 3 / 4;
@@ -317,20 +324,20 @@
           grid-row: 2 / 3;
         }
       }
-        .footer-wrapper {
-          height: 60px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background: var(--alt);
-        }
-        footer {
-          display: flex;
-          justify-content: center;
-          align-items: flex-end;
-          margin-top: 2rem;
-          opacity: .2;
-        }
+      .footer-wrapper {
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--alt);
+      }
+      footer {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin-top: 2rem;
+        opacity: 0.2;
+      }
     </style>
   </head>
   <body>
@@ -349,7 +356,8 @@
                     rel="noopener nofollow"
                     target="_blank"
                     href="http://www.ilt.kharkov.ua/"
-                    >ILT</a
+                  >
+                    ILTPE</a
                   >
                 </li>
                 <li class="nav-menu__item">
@@ -358,7 +366,7 @@
                     rel="noopener nofollow"
                     target="_blank"
                     href="http://ilt.kharkov.ua/bvi/structure/depart_e/d26/d26e.html"
-                    >DEPARTMENT</a
+                    >Department</a
                   >
                 </li>
               </ul>
@@ -383,7 +391,7 @@
                   B. Verkin Institute for Low Temperature Physics & Engineering
                 </li>
                 <li>of the National Academy of Sciences of Ukraine</li>
-                <li>Nauky Ave., Kharkiv, 61103, Ukraine</li>
+                <li>47 Nauky Ave., Kharkiv, 61103, Ukraine</li>
               </ul>
               <!-- <br /> -->
               <ul class="person-info__contacts">
@@ -407,8 +415,10 @@
               <!-- <br /> -->
               <ul class="person-info__biography">
                 <li>Graduated from Kharkov State University in 1995.</li>
-                <li>The same year started work at ILTPE.</li>
-                <li>PhD Phys & Math, ILTPE, 2011.</li>
+                <li>
+                  Post-graduate Study in B.&nbsp;Verkin ILTPE of NASU, 1995-2001
+                </li>
+                <li>PhD Phys & Math, B.&nbsp;Verkin ILTPE of NASU, 2011.</li>
               </ul>
             </div>
             <details open>
@@ -439,6 +449,34 @@
                 observation of breather excitations in such systems.
               </p>
             </details>
+
+            <details open>
+              <summary
+                ><h4 class="subtitle">
+                  Educational activity:
+                </h4>
+              </summary>
+              <p class="ti">
+                <i>
+                  National Technical University "Kharkiv Polytechnic
+                  Institute":</i
+                >
+              </p>
+
+              <p>
+                "Theoretical physics" – 2015/2016, 2016/2017, 2017/2018 academic
+                years, spring semester (6 semester);
+              </p>
+              <p>
+                "Field Theory and Quantum Mechanics" – 2015/2016, 2016/2017,
+                2017/2018 academic years, spring semester (6 semester);
+              </p>
+              <p>
+                "Quantum Mechanics" – 2017/2018 academic years, spring semester
+                (4 semester).
+              </p>
+            </details>
+
             <details open>
               <summary><h4 class="subtitle">Publications:</h4></summary>
               <ol class="publications-list">
@@ -449,7 +487,10 @@
                   //<wbr /><i>
                     Journal of communications technology & electronics. – 1996.
                     – Т.41, No 1. – P. 22–28.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a class="publications-link" href="#" title="Link to article"
+                    ><i class="fas fa-book-open"></i
+                  ></a>
                 </li>
                 <li>
                   Chishko&nbsp;K.A. Emission of electromagnetic waves by edge
@@ -458,7 +499,10 @@
                   <i
                     >Physics of the Solid State. – 1996. – Т.38, No 9. – P.
                     1521-1526.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a class="publications-link" href="#" title="Link to article"
+                    ><i class="fas fa-book-open"></i
+                  ></a>
                 </li>
                 <li>
                   Chishko&nbsp;K.A. Radiation of electromagnetic waves from edge
@@ -466,7 +510,10 @@
                   K.A.&nbsp;Chishko, <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
                     Materials Sciences & Engineering: A. – 1997. – V.234-236. –
                     P. 361-364.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a class="publications-link" href="#" title="Link to article"
+                    ><i class="fas fa-book-open"></i
+                  ></a>
                 </li>
 
                 <li>
@@ -475,7 +522,10 @@
                   <b>O.V.&nbsp;Charkina</b>, K.A.&nbsp;Chishko //<wbr /><i>
                     Physics of the Solid State. – 2001 – V.43, No 10. – P.
                     1898-1904.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a class="publications-link" href="#" title="Link to article"
+                    ><i class="fas fa-book-open"></i
+                  ></a>
                 </li>
                 <li>
                   Antsygina&nbsp;T.N. Heat Capacity of 2D Solid Solution of
@@ -483,7 +533,10 @@
                   <b>O.V.&nbsp;Charkina</b>, M.I.&nbsp;Poltavskaya //<wbr /><i>
                     Journal of Low Temperature Physics. – 2005 – V.138, No 1/2.
                     – P. 379-384.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a class="publications-link" href="#" title="Link to article"
+                    ><i class="fas fa-book-open"></i
+                  ></a>
                 </li>
                 <li>
                   Charkina&nbsp;O.V. Internal Modes of Oscillations of
@@ -491,23 +544,26 @@
                   <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan //<wbr /><i>
                     Uzhhorod University Scientific Herald. Series Physics. –
                     2005. – Iss.17. – P. 30-37.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a class="publications-link" href="#" title="Link to article"
+                    ><i class="fas fa-book-open"></i
+                  ></a>
                 </li>
                 <li>
                   Charkina&nbsp;O.V. Internal Modes of Solitons and
                   Near-Integrable Highly-Dispersive Nonlinear Systems /
                   <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan //<wbr /><i>
                     SIGMA (Symmetry, Integrability and Geometry: Methods and
-                    Applications). – 2006. – V. 2, No 047. – P. 1–12. – Open
-                    access :</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                    Applications). – 2006. – V. 2, No 047. – P. 1–12.
+                  </i>
                   <a
-                    rel="noopener nofollow"
-                    target="_blank"
-                    class="publicl-link animation-underline"
+                    class="publications-link"
                     href="http://www.emis.de/journals/SIGMA/2006/Paper047/"
-                    >http://www.emis.de/journals/SIGMA/2006/Paper047/</a
-                  > 
+                    title="Read the article"
+                    rel="nofollow noopener"
+                    target="_blank"
+                    ><i class="fab fa-readme"></i
+                  ></a>
                 </li>
                 <li>
                   Charkina&nbsp;O.V. Processes of formation of soliton complexes
@@ -515,7 +571,22 @@
                   <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan //<wbr /><i>
                     Uzhhorod University Scientific Herald. Series Physics. –
                     2007. – Iss.21. – P. 196–204. [in Ukrainian].</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a
+                    class="publications-link"
+                    href="./charkina_publications_file.pdf/Uzhhorod _2007.pdf"
+                    download
+                    title="Download the article"
+                    ><i class="fas fa-paperclip"></i
+                  ></a>
+                  <a
+                    class="publications-link"
+                    href="./Uzhhorod _2007.html"
+                    title="Read the article"
+                    rel="nofollow noopener"
+                    target="_blank"
+                    ><i class="fab fa-readme"></i
+                  ></a>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. Dynamical features of bound states of
@@ -524,7 +595,10 @@
                   <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
                     Low Temperature Physics. – 2007. – Т.33, No 12. – P.
                     1073–1076.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a class="publications-link" href="#" title="Link to article"
+                    ><i class="fas fa-book-open"></i
+                  ></a>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. Dynamics and stability of solitons in the
@@ -532,7 +606,10 @@
                   M.M.&nbsp;Bogdan, <b>O.V.&nbsp;Charkina</b> // <wbr /><i
                     >Nonlinear world. – 2008. – V.6, No 5-6. – P. 324–333. [in
                     Russian].</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a class="publications-link" href="#" title="Link to article"
+                    ><i class="fas fa-book-open"></i
+                  ></a>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. Dynamics of bound soliton states in
@@ -540,7 +617,10 @@
                   <b>O.V.&nbsp;Charkina</b> // <wbr /><i
                     >Low Temperature Physics. – 2008. – V.34, No 7. – P.
                     564–570.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a class="publications-link" href="#" title="Link to article"
+                    ><i class="fas fa-book-open"></i
+                  ></a>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. Spin waves in easy-axis antiferromagnets with
@@ -548,7 +628,10 @@
                   <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
                     Low Temperature Physics. – 2014. – V.40, No 1. – P.
                     84-90.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a class="publications-link" href="#" title="Link to article"
+                    ><i class="fas fa-book-open"></i
+                  ></a>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. Local negative magnetic permeability and
@@ -557,7 +640,10 @@
                   <wbr /><i
                     >Low Temperature Physics. – 2014. – V.40, No 3. – P.
                     234–238.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a class="publications-link" href="#" title="Link to article"
+                    ><i class="fas fa-book-open"></i
+                  ></a>
                 </li>
                 <li>
                   Spin-current resonances in a magnetically inhomogeneous 2D
@@ -565,7 +651,10 @@
                   A.N.&nbsp;Kalinenko, A.I.&nbsp;Kopeliovich, P.V.&nbsp;Pyshkin,
                   A.V.&nbsp;Yanovsky // <wbr /><i
                     >Physics Letters A. – 2016. – V.380. – P. 3678-3682.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a class="publications-link" href="#" title="Link to article"
+                    ><i class="fas fa-book-open"></i
+                  ></a>
                 </li>
                 <li>
                   Charkina&nbsp;О.V. Localized excitations and scattering of
@@ -573,7 +662,10 @@
                   <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan // <wbr /><i
                     >Low Temperature Physics. – 2018. – V.44, No 7. – P.
                     644-650.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a class="publications-link" href="#" title="Link to article"
+                    ><i class="fas fa-book-open"></i
+                  ></a>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. The effect of the magnetic field on the
@@ -583,13 +675,17 @@
                   <b>O.V.&nbsp;Charkina</b> // <wbr /><i
                     >Low Temperature Physics. – 2018. – V.44, No 12. – P.
                     1331-1340.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a class="publications-link" href="#" title="Link to article"
+                    ><i class="fas fa-book-open"></i
+                  ></a>
                 </li>
               </ol>
             </details>
             <footer>
-                Design: &copy; 2019 Gorbulin G.M. <a href="https://github.com/gennadiy1970">GitHub</a>
-              </footer>
+              Design: &copy; 2019 Gorbulin G.M.
+              <a href="https://github.com/gennadiy1970">GitHub</a>
+            </footer>
           </div>
         </li>
         <!-- ======================== #endeng ========================================== -->
@@ -611,7 +707,7 @@
                   <a
                     class="nav-menu__link animation-underline"
                     href="http://ilt.kharkov.ua/bvi/structure/depart_e/d26/d26e.html"
-                    >ВІДДІЛ</a
+                    >Відділ</a
                   >
                 </li>
               </ul>
@@ -632,7 +728,8 @@
               <ul class="person-info__work">
                 <li>Відділ теоретичної фізики,</li>
                 <li>
-                  Фізико-технічний інститут низьких температур ім. Б.І. Вєркіна
+                  Фізико-технічний інститут низьких температур
+                  ім.&nbsp;Б.І.&nbsp;Вєркіна
                 </li>
                 <li>Національної академії наук України,</li>
                 <li>Проспект Науки, 47, Харків, 61103, Україна</li>
@@ -655,13 +752,18 @@
                 </li>
               </ul>
               <ul class="person-info__biography">
-                <li>Закінчила Харківський державний університет у 1995.</li>
                 <li>
-                  З того ж року працює у ФТИНТ ім. Б.І. Вєркіна НАН України.
+                  Закінчила радиофізичний факультет Харківського державного
+                  університету&nbsp;в&nbsp;1995.
+                </li>
+                <li>
+                  Аспірантура при ФТІНТ ім.&nbsp;Б.І.&nbsp;Вєркіна НАН України
+                  1995-2001.
                 </li>
                 <li>
                   Кандидат фізико-математичних наук (спеціальність – теоретична
-                  фізика, ФТІНТ ім. Б.І. Вєркіна НАН України, 2011).
+                  фізика, ФТІНТ ім.&nbsp;Б.І.&nbsp;Вєркіна НАН
+                  України,&nbsp;2011).
                 </li>
               </ul>
             </div>
@@ -697,8 +799,10 @@
                 </h4>
               </summary>
               <p class="ti">
-                Національний технічний університет «Харківський політехнічний
-                інститут»:
+                <i
+                  >Національний технічний університет «Харківський політехнічний
+                  інститут»:</i
+                >
               </p>
 
               <p>
@@ -715,7 +819,7 @@
               </p>
             </details>
             <details open>
-              <summary><h4 class="subtitle">Publications:</h4></summary>
+              <summary><h4 class="subtitle">Публікації:</h4></summary>
               <ol class="publications-list">
                 <li>
                   Zhuck&nbsp;N.P. Green's functions of Maxwell's equations for
@@ -724,16 +828,18 @@
                   //<wbr /><i>
                     Journal of communications technology & electronics. – 1996.
                     – Т.41, No 1. – P. 22–28.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Chishko&nbsp;K.A. Emission of electromagnetic waves by edge
                   dislocations moving in ionic crystals /<wbr />
                   K.A.&nbsp;Chishko, <b>O.V.&nbsp;Charkina</b> //<wbr />
                   <i
-                    >Physics of the Solid State. – 1996. – Т.38, No 9. – P.
+                    >Physics of the Solid State. – 1996. – V.38, No 9. – P.
                     1521-1526.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Chishko&nbsp;K.A. Radiation of electromagnetic waves from edge
@@ -741,7 +847,8 @@
                   K.A.&nbsp;Chishko, <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
                     Materials Sciences & Engineering: A. – 1997. – V.234-236. –
                     P. 361-364.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
 
                 <li>
@@ -750,7 +857,8 @@
                   <b>O.V.&nbsp;Charkina</b>, K.A.&nbsp;Chishko //<wbr /><i>
                     Physics of the Solid State. – 2001 – V.43, No 10. – P.
                     1898-1904.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Antsygina&nbsp;T.N. Heat Capacity of 2D Solid Solution of
@@ -758,7 +866,8 @@
                   <b>O.V.&nbsp;Charkina</b>, M.I.&nbsp;Poltavskaya //<wbr /><i>
                     Journal of Low Temperature Physics. – 2005 – V.138, No 1/2.
                     – P. 379-384.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Charkina&nbsp;O.V. Internal Modes of Oscillations of
@@ -766,7 +875,8 @@
                   <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan //<wbr /><i>
                     Uzhhorod University Scientific Herald. Series Physics. –
                     2005. – Iss.17. – P. 30-37.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Charkina&nbsp;O.V. Internal Modes of Solitons and
@@ -775,14 +885,15 @@
                     SIGMA (Symmetry, Integrability and Geometry: Methods and
                     Applications). – 2006. – V. 2, No 047. – P. 1–12. – Open
                     access :</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                   <a
                     rel="noopener nofollow"
                     target="_blank"
                     class="publicl-link animation-underline"
                     href="http://www.emis.de/journals/SIGMA/2006/Paper047/"
                     >http://www.emis.de/journals/SIGMA/2006/Paper047/</a
-                  > 
+                  >
                 </li>
                 <li>
                   Чаркіна&nbsp;O.В. Процеси формування солітонних комплексів і
@@ -790,7 +901,8 @@
                   <b>O.В.&nbsp;Чаркіна</b>, M.M.&nbsp;Богдан //<wbr /><i>
                     Науковий вісник Ужгородського університету. Серія Фізика. –
                     2007. – Вип.21. – С. 196–204.
-                  </i> <a href="#"><i class="fas fa-paperclip"></i></a>
+                  </i>
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. Dynamical features of bound states of
@@ -799,7 +911,8 @@
                   <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
                     Low Temperature Physics. – 2007. – Т.33, No 12. – P.
                     1073–1076.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. Dynamics and stability of solitons in the
@@ -807,7 +920,8 @@
                   M.M.&nbsp;Bogdan, <b>O.V.&nbsp;Charkina</b> // <wbr /><i
                     >Nonlinear world. – 2008. – V.6, No 5-6. – P. 324–333. [in
                     Russian].</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. Dynamics of bound soliton states in
@@ -815,7 +929,8 @@
                   <b>O.V.&nbsp;Charkina</b> // <wbr /><i
                     >Low Temperature Physics. – 2008. – V.34, No 7. – P.
                     564–570.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. Spin waves in easy-axis antiferromagnets with
@@ -823,7 +938,8 @@
                   <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
                     Low Temperature Physics. – 2014. – V.40, No 1. – P.
                     84-90.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. Local negative magnetic permeability and
@@ -832,7 +948,8 @@
                   <wbr /><i
                     >Low Temperature Physics. – 2014. – V.40, No 3. – P.
                     234–238.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Spin-current resonances in a magnetically inhomogeneous 2D
@@ -840,7 +957,8 @@
                   A.N.&nbsp;Kalinenko, A.I.&nbsp;Kopeliovich, P.V.&nbsp;Pyshkin,
                   A.V.&nbsp;Yanovsky // <wbr /><i
                     >Physics Letters A. – 2016. – V.380. – P. 3678-3682.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Charkina&nbsp;О.V. Localized excitations and scattering of
@@ -848,7 +966,8 @@
                   <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan // <wbr /><i
                     >Low Temperature Physics. – 2018. – V.44, No 7. – P.
                     644-650.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. The effect of the magnetic field on the
@@ -857,13 +976,15 @@
                   V.I.&nbsp;Belan, <b>O.V.&nbsp;Charkina</b> // <wbr /><i
                     >Low Temperature Physics. – 2018. – V.44, No 12. – P.
                     1331-1340.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
               </ol>
             </details>
             <footer>
-                Design: &copy; 2019 Gorbulin G.M. <a href="https://github.com/gennadiy1970">GitHub</a>
-              </footer>
+              Design: &copy; 2019 Gorbulin G.M.
+              <a href="https://github.com/gennadiy1970">GitHub</a>
+            </footer>
           </div>
         </li>
         <!-- ======================== #enduk =========================================== -->
@@ -885,7 +1006,7 @@
                   <a
                     class="nav-menu__link animation-underline"
                     href="http://ilt.kharkov.ua/bvi/structure/depart_e/d26/d26e.html"
-                    >Отдел Теор. Физики</a
+                    >Отдел</a
                   >
                 </li>
               </ul>
@@ -906,8 +1027,8 @@
               <ul class="person-info__work">
                 <li>Отдел теоретической физики,</li>
                 <li>
-                  Физико-технический институт низких температур им. Б.И.
-                  Веркина,
+                  Физико-технический институт низких температур
+                  им.&nbsp;Б.И.&nbsp;Веркина Национальной академии наук Украины,
                 </li>
                 <li>Проспект Науки, 47, Харьков, 61103, Украина</li>
               </ul>
@@ -929,41 +1050,74 @@
                 </li>
               </ul>
               <ul class="person-info__biography">
-                <li>Graduated from Kharkov State University in 1995.</li>
-                <li>The same year started work at ILTPE.</li>
-                <li>PhD Phys & Math, ILTPE, 2011.</li>
+                <li>
+                  Закончила радиофизический факульт Харьковского
+                  государственного университета в 1995.
+                </li>
+                <li>
+                  Аспирантура при ФТИНТ им.&nbsp;Б.И.&nbsp;Веркина НАН Украины
+                  1995-2001.
+                </li>
+                <li>
+                  Кандидат физико-математических наук (специальность –
+                  теоретическая физика, ФТИНТ им.&nbsp;Б.И.&nbsp;Веркина НАН
+                  Украины, 2011).
+                </li>
               </ul>
             </div>
             <details open>
-              <summary><h4 class="subtitle">Research area:</h4></summary>
+              <summary
+                ><h4 class="subtitle">
+                  Направление научной деятельности:
+                </h4></summary
+              >
               <p class="ti">
-                The theory of nonlinear phenomena in condensed matter physics
-                based on the soliton concept and its applications for
-                description of nonlinear effects in solids.
+                Физика многослойных структур, метаматериалы. Физика магнитных
+                явлений. Теоретическая физика.
               </p>
             </details>
             <details open>
               <summary
                 ><h4 class="subtitle">
-                  Last five years activity and current interests:
+                  Основные направления исследований последние пять лет:
                 </h4>
               </summary>
               <p class="ti">
-                Subjects of current investigations include theoretical research
-                of the non-stationary and internal dynamics of topological
-                solitons, and conditions of formation and propagation of bound
-                soliton complexes and breather excitations in nonlinear systems
-                with the strong dispersion and complicated microstructure,
-                computer simulation of the soliton-complexes nonstationary
-                dynamics; exact theoretical description of spin waves scattering
-                by moving domain walls in anisotropic antiferromagnets in a
-                magnetic field; theory of the local negative magnetic
-                permeability in nonlinear metamaterials and possibility of
-                observation of breather excitations in such systems.
+                Исследование нелинейной динамики солитонных и бризерных
+                возбуждений в низкоразмерных системах с сильной дисперсией,
+                квазиодномерных магнетиках и магнитных метаматериалах, точное
+                решение проблемы устойчивости дискретных магнитных наноструктур
+                и спектральных задач для их локализованных возбуждений.
               </p>
             </details>
             <details open>
-              <summary><h4 class="subtitle">Publications:</h4></summary>
+              <summary
+                ><h4 class="subtitle">
+                  Преподавательская деятельность в высших учебных заведениях за
+                  последние пять лет:
+                </h4>
+              </summary>
+              <p class="ti">
+                <i
+                  >Национальный технический университет «Харьковский
+                  политехнический институт»:</i
+                >
+              </p>
+              <p>
+                «Теоретическая физика» – 2015/2016, 2016/2017, 2017/2018 учебные
+                годы, весенний семестр (6 семестр);
+              </p>
+              <p>
+                «Теория поля и Квантовая механика» – 2015/2016, 2016/2017,
+                2017/2018 учебные годы, весенний семестр (6 семестр);
+              </p>
+              <p>
+                «Квантовая механика» – 2017/2018 учебный год, весенний семестр
+                (4 семестр).
+              </p>
+            </details>
+            <details open>
+              <summary><h4 class="subtitle">Публикации:</h4></summary>
               <ol class="publications-list">
                 <li>
                   Zhuck&nbsp;N.P. Green's functions of Maxwell's equations for
@@ -972,16 +1126,18 @@
                   //<wbr /><i>
                     Journal of communications technology & electronics. – 1996.
                     – Т.41, No 1. – P. 22–28.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Chishko&nbsp;K.A. Emission of electromagnetic waves by edge
                   dislocations moving in ionic crystals /<wbr />
                   K.A.&nbsp;Chishko, <b>O.V.&nbsp;Charkina</b> //<wbr />
                   <i
-                    >Physics of the Solid State. – 1996. – Т.38, No 9. – P.
+                    >Physics of the Solid State. – 1996. –V.38, No 9. – P.
                     1521-1526.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Chishko&nbsp;K.A. Radiation of electromagnetic waves from edge
@@ -989,7 +1145,8 @@
                   K.A.&nbsp;Chishko, <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
                     Materials Sciences & Engineering: A. – 1997. – V.234-236. –
                     P. 361-364.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
 
                 <li>
@@ -998,7 +1155,8 @@
                   <b>O.V.&nbsp;Charkina</b>, K.A.&nbsp;Chishko //<wbr /><i>
                     Physics of the Solid State. – 2001 – V.43, No 10. – P.
                     1898-1904.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Antsygina&nbsp;T.N. Heat Capacity of 2D Solid Solution of
@@ -1006,7 +1164,8 @@
                   <b>O.V.&nbsp;Charkina</b>, M.I.&nbsp;Poltavskaya //<wbr /><i>
                     Journal of Low Temperature Physics. – 2005 – V.138, No 1/2.
                     – P. 379-384.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Charkina&nbsp;O.V. Internal Modes of Oscillations of
@@ -1014,7 +1173,8 @@
                   <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan //<wbr /><i>
                     Uzhhorod University Scientific Herald. Series Physics. –
                     2005. – Iss.17. – P. 30-37.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Charkina&nbsp;O.V. Internal Modes of Solitons and
@@ -1023,7 +1183,7 @@
                     SIGMA (Symmetry, Integrability and Geometry: Methods and
                     Applications). – 2006. – V. 2, No 047. – P. 1–12. – Open
                     access :</i
-                  > 
+                  >
                   <a
                     rel="noopener nofollow"
                     target="_blank"
@@ -1038,7 +1198,8 @@
                   <b>O.В.&nbsp;Чаркіна</b>, M.M.&nbsp;Богдан //<wbr /><i>
                     Науковий вісник Ужгородського університету. Серія Фізика. –
                     2007. – Вип.21. – С. 196–204.
-                  </i> <a href="#"><i class="fas fa-paperclip"></i></a>
+                  </i>
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. Dynamical features of bound states of
@@ -1047,15 +1208,15 @@
                   <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
                     Low Temperature Physics. – 2007. – Т.33, No 12. – P.
                     1073–1076.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
-                  Bogdan&nbsp;M.M. Dynamics and stability of solitons in the
-                  sine-Gordon models with a strong dispersion /
-                  M.M.&nbsp;Bogdan, <b>O.V.&nbsp;Charkina</b> // <wbr /><i
-                    >Nonlinear world. – 2008. – V.6, No 5-6. – P. 324–333. [in
-                    Russian].</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  Богдан&nbsp;M.M. Динамика и устойчивость солитонов в моделях
+                  синус-Гордон с сильной дисперсией / M.M.&nbsp;Богдан,
+                  <b>O.В.&nbsp;Чаркина</b> // <wbr />
+                  <i>Нелинейный мир. – 2008. – Т.6, № 5-6. – С. 324–333. </i>
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. Dynamics of bound soliton states in
@@ -1063,7 +1224,8 @@
                   <b>O.V.&nbsp;Charkina</b> // <wbr /><i
                     >Low Temperature Physics. – 2008. – V.34, No 7. – P.
                     564–570.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. Spin waves in easy-axis antiferromagnets with
@@ -1071,7 +1233,8 @@
                   <b>O.V.&nbsp;Charkina</b> //<wbr /><i>
                     Low Temperature Physics. – 2014. – V.40, No 1. – P.
                     84-90.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. Local negative magnetic permeability and
@@ -1080,7 +1243,8 @@
                   <wbr /><i
                     >Low Temperature Physics. – 2014. – V.40, No 3. – P.
                     234–238.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Spin-current resonances in a magnetically inhomogeneous 2D
@@ -1088,7 +1252,8 @@
                   A.N.&nbsp;Kalinenko, A.I.&nbsp;Kopeliovich, P.V.&nbsp;Pyshkin,
                   A.V.&nbsp;Yanovsky // <wbr /><i
                     >Physics Letters A. – 2016. – V.380. – P. 3678-3682.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Charkina&nbsp;О.V. Localized excitations and scattering of
@@ -1096,7 +1261,8 @@
                   <b>O.V.&nbsp;Charkina</b>, M.M.&nbsp;Bogdan // <wbr /><i
                     >Low Temperature Physics. – 2018. – V.44, No 7. – P.
                     644-650.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
                 <li>
                   Bogdan&nbsp;M.M. The effect of the magnetic field on the
@@ -1105,12 +1271,14 @@
                   V.I.&nbsp;Belan, <b>O.V.&nbsp;Charkina</b> // <wbr /><i
                     >Low Temperature Physics. – 2018. – V.44, No 12. – P.
                     1331-1340.</i
-                  > <a href="#"><i class="fas fa-paperclip"></i></a>
+                  >
+                  <a href="#"><i class="fas fa-paperclip"></i></a>
                 </li>
               </ol>
             </details>
             <footer>
-              Design: &copy; 2019 Gorbulin G.M. <a href="https://github.com/gennadiy1970">GitHub</a>
+              Design: &copy; 2019 Gorbulin G.M.
+              <a href="https://github.com/gennadiy1970">GitHub</a>
             </footer>
           </div>
         </li>
